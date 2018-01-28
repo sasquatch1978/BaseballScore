@@ -3,17 +3,17 @@
     android:layout_width="250dp"
     android:layout_height="225dp"
     android:layout_gravity="center"
-    android:orientation="vertical"
     android:background="@drawable/popup_background2"
+    android:orientation="vertical"
     android:padding="5dp">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/margin_button"
-        android:textColor="@color/score_color"
         android:gravity="center_horizontal"
         android:text="@string/reset_popup_title"
+        android:textColor="@color/score_color"
         android:textSize="@dimen/title_font" />
 
     <Button
@@ -24,7 +24,8 @@
         android:layout_marginRight="@dimen/margin_button"
         android:layout_marginTop="@dimen/margin_button"
         android:alpha="@dimen/alpha"
-        android:text="@string/reset_count" />
+        android:text="@string/reset_count"
+        android:textColor="@color/button_text_color" />
 
     <Button
         android:id="@+id/outs_reset"
@@ -34,7 +35,8 @@
         android:layout_marginRight="@dimen/margin_button"
         android:layout_marginTop="@dimen/margin_button"
         android:alpha="@dimen/alpha"
-        android:text="@string/reset_count_outs" />
+        android:text="@string/reset_count_outs"
+        android:textColor="@color/button_text_color" />
 
     <Button
         android:id="@+id/all_reset"
@@ -44,6 +46,7 @@
         android:layout_marginRight="@dimen/margin_button"
         android:layout_marginTop="@dimen/margin_button"
         android:alpha="@dimen/alpha"
-        android:text="@string/reset_all" />
+        android:text="@string/reset_all"
+        android:textColor="@color/button_text_color" />
 
 </LinearLayout>

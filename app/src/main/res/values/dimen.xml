@@ -1,4 +1,6 @@
 <resources>
+    <dimen name="layout_size">0dp</dimen>
+    <dimen name="line_size">1dp</dimen>
     <dimen name="margin_side">24dp</dimen>
     <dimen name="margin_top">16dp</dimen>
     <dimen name="margin_header">20dp</dimen>
