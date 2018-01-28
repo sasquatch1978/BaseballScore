@@ -1,15 +1,11 @@
 <resources>
     <dimen name="margin_side">24dp</dimen>
-    <dimen name="margin_top">8dp</dimen>
-    <dimen name="margin_left">9dp</dimen>
+    <dimen name="margin_top">16dp</dimen>
     <dimen name="margin_header">20dp</dimen>
-    <dimen name="margin_stats">18dp</dimen>
-    <dimen name="margin_bottom">32dp</dimen>
-    <dimen name="margin_button">6dp</dimen>
-    <dimen name="margin_button2">7dp</dimen>
+    <dimen name="margin_button">7dp</dimen>
     <dimen name="button_padding">60dp</dimen>
     <dimen name="title_font">20sp</dimen>
-    <dimen name="zero_font">24sp</dimen>
-    <dimen name="stat_font">24sp</dimen>
+    <dimen name="count_font">24sp</dimen>
     <dimen name="score_font">56sp</dimen>
+    <dimen name="alpha">0.94</dimen>
 </resources>

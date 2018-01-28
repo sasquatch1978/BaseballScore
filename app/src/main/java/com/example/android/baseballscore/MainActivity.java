@@ -17,26 +17,22 @@ public class MainActivity extends AppCompatActivity {
     // Home Team //
     int scoreHomeTeam = 0;
     int strikeHomeTeam = 0;
-    int foulHomeTeam = 0;
     int ballHomeTeam = 0;
     int outHomeTeam = 0;
 
     static String SCORE_HOME = "score_home";
     static String STRIKE_HOME = "strike_home";
-    static String FOUL_HOME = "foul_home";
     static String BALL_HOME = "ball_home";
     static String OUT_HOME = "out_home";
 
     // Away Team //
     int scoreAwayTeam = 0;
     int strikeAwayTeam = 0;
-    int foulAwayTeam = 0;
     int ballAwayTeam = 0;
     int outAwayTeam = 0;
 
     static String SCORE_AWAY = "score_away";
     static String STRIKE_AWAY = "strike_away";
-    static String FOUL_AWAY = "foul_away";
     static String BALL_AWAY = "ball_away";
     static String OUT_AWAY = "out_away";
 
@@ -59,43 +55,35 @@ public class MainActivity extends AppCompatActivity {
                 final Dialog dialog = new Dialog(context);
                 dialog.setContentView(R.layout.reset_popup);
 
-                Button statsReset = (Button) dialog.findViewById(R.id.stats_reset);
-                // If button is clicked, clear the stats. //
+                Button statsReset = (Button) dialog.findViewById(R.id.count_reset);
+                // If button is clicked, clear the count. //
                 statsReset.setOnClickListener(new View.OnClickListener() {
                     public void onClick(View view) {
                         strikeHomeTeam = 0;
-                        foulHomeTeam = 0;
                         ballHomeTeam = 0;
                         strikeAwayTeam = 0;
-                        foulAwayTeam = 0;
                         ballAwayTeam = 0;
                         displayHomeTeamStrike(strikeHomeTeam);
-                        displayHomeTeamFoul(foulHomeTeam);
                         displayHomeTeamBall(ballHomeTeam);
                         displayAwayTeamStrike(strikeAwayTeam);
-                        displayAwayTeamFoul(foulAwayTeam);
                         displayAwayTeamBall(ballAwayTeam);
                         dialog.dismiss();
                     }
                 });
 
                 Button outsReset = (Button) dialog.findViewById(R.id.outs_reset);
-                // If button is clicked, clear the stats and outs. //
+                // If button is clicked, clear the count and outs. //
                 outsReset.setOnClickListener(new View.OnClickListener() {
                     public void onClick(View view) {
                         strikeHomeTeam = 0;
-                        foulHomeTeam = 0;
                         ballHomeTeam = 0;
                         strikeAwayTeam = 0;
-                        foulAwayTeam = 0;
                         ballAwayTeam = 0;
                         outHomeTeam = 0;
                         outAwayTeam = 0;
                         displayHomeTeamStrike(strikeHomeTeam);
-                        displayHomeTeamFoul(foulHomeTeam);
                         displayHomeTeamBall(ballHomeTeam);
                         displayAwayTeamStrike(strikeAwayTeam);
-                        displayAwayTeamFoul(foulAwayTeam);
                         displayAwayTeamBall(ballAwayTeam);
                         displayHomeTeamOut(outHomeTeam);
                         displayAwayTeamOut(outAwayTeam);
@@ -104,14 +92,12 @@ public class MainActivity extends AppCompatActivity {
                 });
 
                 Button allReset = (Button) dialog.findViewById(R.id.all_reset);
-                // If button is clicked, clear the outs and stats. //
+                // If button is clicked, clear everything. //
                 allReset.setOnClickListener(new View.OnClickListener() {
                     public void onClick(View view) {
                         strikeHomeTeam = 0;
-                        foulHomeTeam = 0;
                         ballHomeTeam = 0;
                         strikeAwayTeam = 0;
-                        foulAwayTeam = 0;
                         ballAwayTeam = 0;
                         outHomeTeam = 0;
                         outAwayTeam = 0;
@@ -119,24 +105,14 @@ public class MainActivity extends AppCompatActivity {
                         scoreHomeTeam = 0;
                         scoreAwayTeam = 0;
                         displayHomeTeamStrike(strikeHomeTeam);
-                        displayHomeTeamFoul(foulHomeTeam);
                         displayHomeTeamBall(ballHomeTeam);
                         displayAwayTeamStrike(strikeAwayTeam);
-                        displayAwayTeamFoul(foulAwayTeam);
                         displayAwayTeamBall(ballAwayTeam);
                         displayHomeTeamOut(outHomeTeam);
                         displayAwayTeamOut(outAwayTeam);
                         displayInningNumber(inningNumber);
                         displayHomeTeamScore(scoreHomeTeam);
                         displayAwayTeamScore(scoreAwayTeam);
-                        dialog.dismiss();
-                    }
-                });
-
-                Button cancelReset = (Button) dialog.findViewById(R.id.cancel_reset);
-                // If button is clicked, close the reset popup. //
-                cancelReset.setOnClickListener(new View.OnClickListener() {
-                    public void onClick(View view) {
                         dialog.dismiss();
                     }
                 });
@@ -153,13 +129,11 @@ public class MainActivity extends AppCompatActivity {
         // Home Team. //
         savedInstanceState.putInt(SCORE_HOME, scoreHomeTeam);
         savedInstanceState.putInt(STRIKE_HOME, strikeHomeTeam);
-        savedInstanceState.putInt(FOUL_HOME, foulHomeTeam);
         savedInstanceState.putInt(BALL_HOME, ballHomeTeam);
         savedInstanceState.putInt(OUT_HOME, outHomeTeam);
         // Away Team. //
         savedInstanceState.putInt(SCORE_AWAY, scoreAwayTeam);
         savedInstanceState.putInt(STRIKE_AWAY, strikeAwayTeam);
-        savedInstanceState.putInt(FOUL_AWAY, foulAwayTeam);
         savedInstanceState.putInt(BALL_AWAY, ballAwayTeam);
         savedInstanceState.putInt(OUT_AWAY, outAwayTeam);
         // Always call the superclass so it can save the view hierarchy state. //
@@ -175,21 +149,17 @@ public class MainActivity extends AppCompatActivity {
         // Home Team //
         scoreHomeTeam = savedInstanceState.getInt(SCORE_HOME);
         strikeHomeTeam = savedInstanceState.getInt(STRIKE_HOME);
-        foulHomeTeam = savedInstanceState.getInt(FOUL_HOME);
         ballHomeTeam = savedInstanceState.getInt(BALL_HOME);
         outHomeTeam = savedInstanceState.getInt(OUT_HOME);
         // Away Team //
         scoreAwayTeam = savedInstanceState.getInt(SCORE_AWAY);
         strikeAwayTeam = savedInstanceState.getInt(STRIKE_AWAY);
-        foulAwayTeam = savedInstanceState.getInt(FOUL_AWAY);
         ballAwayTeam = savedInstanceState.getInt(BALL_AWAY);
         outAwayTeam = savedInstanceState.getInt(OUT_AWAY);
         // Display the saved values. //
         displayHomeTeamStrike(strikeHomeTeam);
-        displayHomeTeamFoul(foulHomeTeam);
         displayHomeTeamBall(ballHomeTeam);
         displayAwayTeamStrike(strikeAwayTeam);
-        displayAwayTeamFoul(foulAwayTeam);
         displayAwayTeamBall(ballAwayTeam);
         displayHomeTeamOut(outHomeTeam);
         displayAwayTeamOut(outAwayTeam);
@@ -223,14 +193,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * This method is called when the Home Team Foul button is clicked.
-     */
-    public void foulHomeTeam(View view) {
-        foulHomeTeam = foulHomeTeam + 1;
-        displayHomeTeamFoul(foulHomeTeam);
-    }
-
-    /**
      * This method is called when the Home Team Ball button is clicked.
      */
     public void ballHomeTeam(View view) {
@@ -260,14 +222,6 @@ public class MainActivity extends AppCompatActivity {
     public void strikeAwayTeam(View view) {
         strikeAwayTeam = strikeAwayTeam + 1;
         displayAwayTeamStrike(strikeAwayTeam);
-    }
-
-    /**
-     * This method is called when the Away Team Foul button is clicked.
-     */
-    public void foulAwayTeam(View view) {
-        foulAwayTeam = foulAwayTeam + 1;
-        displayAwayTeamFoul(foulAwayTeam);
     }
 
     /**
@@ -311,14 +265,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * Displays the given foul balls for Home Team.
-     */
-    public void displayHomeTeamFoul(int score) {
-        TextView scoreView = (TextView) findViewById(R.id.home_foul);
-        scoreView.setText(String.valueOf(score));
-    }
-
-    /**
      * Displays the given balls for Home Team.
      */
     public void displayHomeTeamBall(int score) {
@@ -347,14 +293,6 @@ public class MainActivity extends AppCompatActivity {
      */
     public void displayAwayTeamStrike(int score) {
         TextView scoreView = (TextView) findViewById(R.id.away_strike);
-        scoreView.setText(String.valueOf(score));
-    }
-
-    /**
-     * Displays the given foul balls for Away Team.
-     */
-    public void displayAwayTeamFoul(int score) {
-        TextView scoreView = (TextView) findViewById(R.id.away_foul);
         scoreView.setText(String.valueOf(score));
     }
 

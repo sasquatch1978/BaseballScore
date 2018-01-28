@@ -8,20 +8,14 @@
     <string name="zero">0</string>
     <string name="run_button">Run</string>
     <string name="strike_button">Strike</string>
-    <string name="foul_ball_button">Foul Ball</string>
     <string name="ball_button">Ball</string>
     <string name="out_button">Out</string>
     <string name="reset_button">Reset</string>
-    <string name="stats">Reset Stats</string>
-    <string name="outs">Reset Outs/Stats</string>
-    <string name="all">Reset All</string>
-    <string name="strike_stat">S</string>
-    <string name="foul_ball_stat">F</string>
-    <string name="ball_stat">B</string>
-    <string name="out_stat">O</string>
-    <string name="reset_title">Select an option to reset:</string>
-    <string name="reset_stats">Stats</string>
-    <string name="reset_stats_outs">Stats / Outs</string>
+    <string name="strike_count">S</string>
+    <string name="ball_count">B</string>
+    <string name="out_count">O</string>
+    <string name="reset_popup_title">Reset:</string>
+    <string name="reset_count">Count</string>
+    <string name="reset_count_outs">Count / Outs</string>
     <string name="reset_all">All</string>
-    <string name="reset_cancel">Cancel</string>
 </resources>
