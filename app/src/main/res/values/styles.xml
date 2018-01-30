@@ -9,7 +9,7 @@
         <item name="colorButtonNormal">@color/colorButtonNormal</item>
     </style>
 
-    <style name="TitleFont">
+    <style name="TitleText">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:gravity">center_horizontal</item>
@@ -18,7 +18,7 @@
         <item name="android:textSize">@dimen/title_font</item>
     </style>
 
-    <style name="ScoreFont">
+    <style name="ScoreText">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_marginBottom">@dimen/margin_top</item>
@@ -28,7 +28,7 @@
         <item name="android:textSize">@dimen/score_font</item>
     </style>
 
-    <style name="CountTitleFont">
+    <style name="CountTitleText">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_weight">1</item>
@@ -37,7 +37,7 @@
         <item name="android:textSize">@dimen/title_font</item>
     </style>
 
-    <style name="CountFont">
+    <style name="CountText">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_weight">1</item>

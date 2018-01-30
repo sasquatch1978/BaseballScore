@@ -24,7 +24,7 @@
             android:orientation="vertical">
 
             <TextView
-                style="@style/TitleFont"
+                style="@style/TitleText"
                 android:text="@string/inning" />
 
             <TextView
@@ -45,27 +45,27 @@
                 <LinearLayout style="@style/BodyLayout">
 
                     <TextView
-                        style="@style/TitleFont"
+                        style="@style/TitleText"
                         android:text="@string/home_team" />
 
                     <TextView
                         android:id="@+id/home_score"
-                        style="@style/ScoreFont"
+                        style="@style/ScoreText"
                         android:text="@string/zero" />
 
                     <LinearLayout style="@style/CountLayout">
 
                         <TextView
-                            style="@style/CountTitleFont"
+                            style="@style/CountTitleText"
                             android:text="@string/strike_count" />
 
                         <TextView
 
-                            style="@style/CountTitleFont"
+                            style="@style/CountTitleText"
                             android:text="@string/ball_count" />
 
                         <TextView
-                            style="@style/CountTitleFont"
+                            style="@style/CountTitleText"
                             android:text="@string/out_count" />
                     </LinearLayout>
 
@@ -73,17 +73,17 @@
 
                         <TextView
                             android:id="@+id/home_strike"
-                            style="@style/CountFont"
+                            style="@style/CountText"
                             android:text="@string/zero" />
 
                         <TextView
                             android:id="@+id/home_ball"
-                            style="@style/CountFont"
+                            style="@style/CountText"
                             android:text="@string/zero" />
 
                         <TextView
                             android:id="@+id/home_out"
-                            style="@style/CountFont"
+                            style="@style/CountText"
                             android:text="@string/zero" />
                     </LinearLayout>
 
@@ -117,26 +117,26 @@
                 <LinearLayout style="@style/BodyLayout">
 
                     <TextView
-                        style="@style/TitleFont"
+                        style="@style/TitleText"
                         android:text="@string/away_team" />
 
                     <TextView
                         android:id="@+id/away_score"
-                        style="@style/ScoreFont"
+                        style="@style/ScoreText"
                         android:text="@string/zero" />
 
                     <LinearLayout style="@style/CountLayout">
 
                         <TextView
-                            style="@style/CountTitleFont"
+                            style="@style/CountTitleText"
                             android:text="@string/strike_count" />
 
                         <TextView
-                            style="@style/CountTitleFont"
+                            style="@style/CountTitleText"
                             android:text="@string/ball_count" />
 
                         <TextView
-                            style="@style/CountTitleFont"
+                            style="@style/CountTitleText"
                             android:text="@string/out_count" />
                     </LinearLayout>
 
@@ -144,17 +144,17 @@
 
                         <TextView
                             android:id="@+id/away_strike"
-                            style="@style/CountFont"
+                            style="@style/CountText"
                             android:text="@string/zero" />
 
                         <TextView
                             android:id="@+id/away_ball"
-                            style="@style/CountFont"
+                            style="@style/CountText"
                             android:text="@string/zero" />
 
                         <TextView
                             android:id="@+id/away_out"
-                            style="@style/CountFont"
+                            style="@style/CountText"
                             android:text="@string/zero" />
                     </LinearLayout>
 
