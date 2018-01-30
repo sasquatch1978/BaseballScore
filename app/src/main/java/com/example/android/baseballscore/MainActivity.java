@@ -12,7 +12,10 @@ public class MainActivity extends AppCompatActivity {
 
     // Inning Number //
     int inningNumber = 1;
+
     static String INNING_NUMBER = "inning_number";
+
+    TextView inning_number;
 
     // Home Team //
     int scoreHomeTeam = 0;
@@ -25,6 +28,11 @@ public class MainActivity extends AppCompatActivity {
     static String BALL_HOME = "ball_home";
     static String OUT_HOME = "out_home";
 
+    TextView home_score;
+    TextView home_strike;
+    TextView home_ball;
+    TextView home_out;
+
     // Away Team //
     int scoreAwayTeam = 0;
     int strikeAwayTeam = 0;
@@ -36,37 +44,57 @@ public class MainActivity extends AppCompatActivity {
     static String BALL_AWAY = "ball_away";
     static String OUT_AWAY = "out_away";
 
+    TextView away_score;
+    TextView away_strike;
+    TextView away_ball;
+    TextView away_out;
+
     // Reset Button //
     final Context context = this;
-    private Button button2;
+    private Button reset;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        button2 = (Button) findViewById(R.id.button2);
+        inning_number = (TextView) findViewById(R.id.inning_number);
+
+        home_score = findViewById(R.id.home_score);
+        home_strike = findViewById(R.id.home_strike);
+        home_ball = findViewById(R.id.home_ball);
+        home_out = findViewById(R.id.home_out);
+
+        away_score = findViewById(R.id.away_score);
+        away_strike = findViewById(R.id.away_strike);
+        away_ball = findViewById(R.id.away_ball);
+        away_out = findViewById(R.id.away_out);
+
+
+        reset = (Button) findViewById(R.id.reset);
+
 
         // Add button listener. //
-        button2.setOnClickListener(new View.OnClickListener() {
+        reset.setOnClickListener(new View.OnClickListener() {
+
 
             public void onClick(View view) {
                 // Custom dialog. //
                 final Dialog dialog = new Dialog(context);
                 dialog.setContentView(R.layout.reset_popup);
 
-                Button statsReset = (Button) dialog.findViewById(R.id.count_reset);
+                Button countReset = (Button) dialog.findViewById(R.id.count_reset);
                 // If button is clicked, clear the count. //
-                statsReset.setOnClickListener(new View.OnClickListener() {
+                countReset.setOnClickListener(new View.OnClickListener() {
                     public void onClick(View view) {
                         strikeHomeTeam = 0;
                         ballHomeTeam = 0;
                         strikeAwayTeam = 0;
                         ballAwayTeam = 0;
-                        displayHomeTeamStrike(strikeHomeTeam);
-                        displayHomeTeamBall(ballHomeTeam);
-                        displayAwayTeamStrike(strikeAwayTeam);
-                        displayAwayTeamBall(ballAwayTeam);
+                        home_strike.setText(String.valueOf(strikeHomeTeam));
+                        home_ball.setText(String.valueOf(ballHomeTeam));
+                        away_strike.setText(String.valueOf(strikeAwayTeam));
+                        away_ball.setText(String.valueOf(ballAwayTeam));
                         dialog.dismiss();
                     }
                 });
@@ -81,12 +109,12 @@ public class MainActivity extends AppCompatActivity {
                         ballAwayTeam = 0;
                         outHomeTeam = 0;
                         outAwayTeam = 0;
-                        displayHomeTeamStrike(strikeHomeTeam);
-                        displayHomeTeamBall(ballHomeTeam);
-                        displayAwayTeamStrike(strikeAwayTeam);
-                        displayAwayTeamBall(ballAwayTeam);
-                        displayHomeTeamOut(outHomeTeam);
-                        displayAwayTeamOut(outAwayTeam);
+                        home_strike.setText(String.valueOf(strikeHomeTeam));
+                        home_ball.setText(String.valueOf(ballHomeTeam));
+                        away_strike.setText(String.valueOf(strikeAwayTeam));
+                        away_ball.setText(String.valueOf(ballAwayTeam));
+                        home_out.setText(String.valueOf(outHomeTeam));
+                        away_out.setText(String.valueOf(outAwayTeam));
                         dialog.dismiss();
                     }
                 });
@@ -104,19 +132,18 @@ public class MainActivity extends AppCompatActivity {
                         inningNumber = 1;
                         scoreHomeTeam = 0;
                         scoreAwayTeam = 0;
-                        displayHomeTeamStrike(strikeHomeTeam);
-                        displayHomeTeamBall(ballHomeTeam);
-                        displayAwayTeamStrike(strikeAwayTeam);
-                        displayAwayTeamBall(ballAwayTeam);
-                        displayHomeTeamOut(outHomeTeam);
-                        displayAwayTeamOut(outAwayTeam);
-                        displayInningNumber(inningNumber);
-                        displayHomeTeamScore(scoreHomeTeam);
-                        displayAwayTeamScore(scoreAwayTeam);
+                        home_strike.setText(String.valueOf(strikeHomeTeam));
+                        home_ball.setText(String.valueOf(ballHomeTeam));
+                        away_strike.setText(String.valueOf(strikeAwayTeam));
+                        away_ball.setText(String.valueOf(ballAwayTeam));
+                        home_out.setText(String.valueOf(outHomeTeam));
+                        away_out.setText(String.valueOf(outAwayTeam));
+                        inning_number.setText(String.valueOf(inningNumber));
+                        home_score.setText(String.valueOf(scoreHomeTeam));
+                        away_score.setText(String.valueOf(scoreAwayTeam));
                         dialog.dismiss();
                     }
                 });
-
                 dialog.show();
             }
         });
@@ -157,15 +184,15 @@ public class MainActivity extends AppCompatActivity {
         ballAwayTeam = savedInstanceState.getInt(BALL_AWAY);
         outAwayTeam = savedInstanceState.getInt(OUT_AWAY);
         // Display the saved values. //
-        displayHomeTeamStrike(strikeHomeTeam);
-        displayHomeTeamBall(ballHomeTeam);
-        displayAwayTeamStrike(strikeAwayTeam);
-        displayAwayTeamBall(ballAwayTeam);
-        displayHomeTeamOut(outHomeTeam);
-        displayAwayTeamOut(outAwayTeam);
-        displayInningNumber(inningNumber);
-        displayHomeTeamScore(scoreHomeTeam);
-        displayAwayTeamScore(scoreAwayTeam);
+        home_strike.setText(String.valueOf(strikeHomeTeam));
+        home_ball.setText(String.valueOf(ballHomeTeam));
+        away_strike.setText(String.valueOf(strikeAwayTeam));
+        away_ball.setText(String.valueOf(ballAwayTeam));
+        home_out.setText(String.valueOf(outHomeTeam));
+        away_out.setText(String.valueOf(outAwayTeam));
+        inning_number.setText(String.valueOf(inningNumber));
+        home_score.setText(String.valueOf(scoreHomeTeam));
+        away_score.setText(String.valueOf(scoreAwayTeam));
     }
 
     /**
@@ -173,7 +200,7 @@ public class MainActivity extends AppCompatActivity {
      */
     public void changeInning(View view) {
         inningNumber = inningNumber + 1;
-        displayInningNumber(inningNumber);
+        inning_number.setText(String.valueOf(inningNumber));
     }
 
     /**
@@ -181,7 +208,7 @@ public class MainActivity extends AppCompatActivity {
      */
     public void runHomeTeam(View view) {
         scoreHomeTeam = scoreHomeTeam + 1;
-        displayHomeTeamScore(scoreHomeTeam);
+        home_score.setText(String.valueOf(scoreHomeTeam));
     }
 
     /**
@@ -189,7 +216,7 @@ public class MainActivity extends AppCompatActivity {
      */
     public void strikeHomeTeam(View view) {
         strikeHomeTeam = strikeHomeTeam + 1;
-        displayHomeTeamStrike(strikeHomeTeam);
+        home_strike.setText(String.valueOf(strikeHomeTeam));
     }
 
     /**
@@ -197,7 +224,7 @@ public class MainActivity extends AppCompatActivity {
      */
     public void ballHomeTeam(View view) {
         ballHomeTeam = ballHomeTeam + 1;
-        displayHomeTeamBall(ballHomeTeam);
+        home_ball.setText(String.valueOf(ballHomeTeam));
     }
 
     /**
@@ -205,7 +232,7 @@ public class MainActivity extends AppCompatActivity {
      */
     public void outHomeTeam(View view) {
         outHomeTeam = outHomeTeam + 1;
-        displayHomeTeamOut(outHomeTeam);
+        home_out.setText(String.valueOf(outHomeTeam));
     }
 
     /**
@@ -213,7 +240,7 @@ public class MainActivity extends AppCompatActivity {
      */
     public void runAwayTeam(View view) {
         scoreAwayTeam = scoreAwayTeam + 1;
-        displayAwayTeamScore(scoreAwayTeam);
+        away_score.setText(String.valueOf(scoreAwayTeam));
     }
 
     /**
@@ -221,7 +248,7 @@ public class MainActivity extends AppCompatActivity {
      */
     public void strikeAwayTeam(View view) {
         strikeAwayTeam = strikeAwayTeam + 1;
-        displayAwayTeamStrike(strikeAwayTeam);
+        away_strike.setText(String.valueOf(strikeAwayTeam));
     }
 
     /**
@@ -229,7 +256,7 @@ public class MainActivity extends AppCompatActivity {
      */
     public void ballAwayTeam(View view) {
         ballAwayTeam = ballAwayTeam + 1;
-        displayAwayTeamBall(ballAwayTeam);
+        away_ball.setText(String.valueOf(ballAwayTeam));
     }
 
     /**
@@ -237,79 +264,6 @@ public class MainActivity extends AppCompatActivity {
      */
     public void outAwayTeam(View view) {
         outAwayTeam = outAwayTeam + 1;
-        displayAwayTeamOut(outAwayTeam);
+        away_out.setText(String.valueOf(outAwayTeam));
     }
-
-    /**
-     * Displays the given Inning Number.
-     */
-    public void displayInningNumber(int score) {
-        TextView scoreView = (TextView) findViewById(R.id.inning_number);
-        scoreView.setText(String.valueOf(score));
-    }
-
-    /**
-     * Displays the given score for Home Team.
-     */
-    public void displayHomeTeamScore(int score) {
-        TextView scoreView = (TextView) findViewById(R.id.home_score);
-        scoreView.setText(String.valueOf(score));
-    }
-
-    /**
-     * Displays the given strikes for Home Team.
-     */
-    public void displayHomeTeamStrike(int score) {
-        TextView scoreView = (TextView) findViewById(R.id.home_strike);
-        scoreView.setText(String.valueOf(score));
-    }
-
-    /**
-     * Displays the given balls for Home Team.
-     */
-    public void displayHomeTeamBall(int score) {
-        TextView scoreView = (TextView) findViewById(R.id.home_ball);
-        scoreView.setText(String.valueOf(score));
-    }
-
-    /**
-     * Displays the given outs for Home Team.
-     */
-    public void displayHomeTeamOut(int score) {
-        TextView scoreView = (TextView) findViewById(R.id.home_out);
-        scoreView.setText(String.valueOf(score));
-    }
-
-    /**
-     * Displays the given score for Away Team.
-     */
-    public void displayAwayTeamScore(int score) {
-        TextView scoreView = (TextView) findViewById(R.id.away_score);
-        scoreView.setText(String.valueOf(score));
-    }
-
-    /**
-     * Displays the given strikes for Away Team.
-     */
-    public void displayAwayTeamStrike(int score) {
-        TextView scoreView = (TextView) findViewById(R.id.away_strike);
-        scoreView.setText(String.valueOf(score));
-    }
-
-    /**
-     * Displays the given balls for Away Team.
-     */
-    public void displayAwayTeamBall(int score) {
-        TextView scoreView = (TextView) findViewById(R.id.away_ball);
-        scoreView.setText(String.valueOf(score));
-    }
-
-    /**
-     * Displays the given outs for Away Team.
-     */
-    public void displayAwayTeamOut(int score) {
-        TextView scoreView = (TextView) findViewById(R.id.away_out);
-        scoreView.setText(String.valueOf(score));
-    }
-
 }

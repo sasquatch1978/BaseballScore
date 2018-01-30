@@ -9,4 +9,89 @@
         <item name="colorButtonNormal">@color/colorButtonNormal</item>
     </style>
 
+    <style name="TitleFont">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textColor">@color/title_color</item>
+        <item name="android:textSize">@dimen/title_font</item>
+    </style>
+
+    <style name="ScoreFont">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginBottom">@dimen/margin_top</item>
+        <item name="android:layout_marginTop">@dimen/margin_top</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:textColor">@color/score_color</item>
+        <item name="android:textSize">@dimen/score_font</item>
+    </style>
+
+    <style name="CountTitleFont">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:textColor">@color/title_color</item>
+        <item name="android:textSize">@dimen/title_font</item>
+    </style>
+
+    <style name="CountFont">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:textColor">@color/score_color</item>
+        <item name="android:textSize">@dimen/count_font</item>
+    </style>
+
+    <style name="TopButton">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginBottom">@dimen/margin_button</item>
+        <item name="android:layout_marginTop">@dimen/margin_header</item>
+        <item name="android:alpha">@dimen/alpha</item>
+        <item name="android:textColor">@color/button_text_color</item>
+    </style>
+
+    <style name="Button">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginBottom">@dimen/margin_button</item>
+        <item name="android:alpha">@dimen/alpha</item>
+        <item name="android:textColor">@color/button_text_color</item>
+    </style>
+
+    <style name="BottomButton">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:alpha">@dimen/alpha</item>
+        <item name="android:textColor">@color/button_text_color</item>
+    </style>
+
+    <style name="BodyLayout">
+        <item name="android:layout_width">@dimen/layout_size</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginLeft">@dimen/margin_side</item>
+        <item name="android:layout_marginRight">@dimen/margin_side</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <style name="CountLayout">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="PopupButton">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginLeft">@dimen/margin_button</item>
+        <item name="android:layout_marginRight">@dimen/margin_button</item>
+        <item name="android:layout_marginTop">@dimen/margin_button</item>
+        <item name="android:alpha">@dimen/alpha</item>
+        <item name="android:textColor">@color/button_text_color</item>
+    </style>
+
 </resources>
