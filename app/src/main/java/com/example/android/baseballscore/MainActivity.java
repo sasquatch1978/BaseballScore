@@ -70,13 +70,10 @@ public class MainActivity extends AppCompatActivity {
         away_ball = findViewById(R.id.away_ball);
         away_out = findViewById(R.id.away_out);
 
-
         reset = (Button) findViewById(R.id.reset);
-
 
         // Add button listener. //
         reset.setOnClickListener(new View.OnClickListener() {
-
 
             public void onClick(View view) {
                 // Custom dialog. //
