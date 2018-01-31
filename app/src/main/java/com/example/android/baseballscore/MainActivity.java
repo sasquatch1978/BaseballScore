@@ -135,7 +135,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         away_score.setText(String.valueOf(scoreAwayTeam));
     }
 
-    // Reset Button //
     public void onClick(View v) {
         // Perform action on click //
         switch (v.getId()) {
