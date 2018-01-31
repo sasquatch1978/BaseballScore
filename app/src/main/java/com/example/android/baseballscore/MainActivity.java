@@ -1,85 +1,13 @@
 package com.example.android.baseballscore;
 
 import android.app.Dialog;
-import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener{
-
-    public class Reset extends AppCompatActivity implements View.OnClickListener {
-
-        protected void onCreate(Bundle savedBundle) {
-            super.onCreate(savedBundle);
-            setContentView(R.layout.reset_popup);
-
-            // Create your buttons and set their onClickListener to "this". //
-            Button b1 = (Button) findViewById(R.id.count_reset);
-            b1.setOnClickListener(this);
-
-            Button b2 = (Button) findViewById(R.id.outs_reset);
-            b2.setOnClickListener(this);
-
-            Button b3 = (Button) findViewById(R.id.all_reset);
-            b3.setOnClickListener(this);}
-
-
-        // Implement the onClick method here. //
-
-        public void onClick(View v) {
-            // Perform action on click //
-            switch (v.getId()) {
-                case R.id.count_reset:
-                    // Reset the count. //
-                    strikeHomeTeam = 0;
-                    ballHomeTeam = 0;
-                    strikeAwayTeam = 0;
-                    ballAwayTeam = 0;
-                    home_strike.setText(String.valueOf(strikeHomeTeam));
-                    home_ball.setText(String.valueOf(ballHomeTeam));
-                    away_strike.setText(String.valueOf(strikeAwayTeam));
-                    away_ball.setText(String.valueOf(ballAwayTeam));
-                    break;
-                case R.id.outs_reset:
-                    // Reset the count and outs. //
-                    strikeHomeTeam = 0;
-                    ballHomeTeam = 0;
-                    strikeAwayTeam = 0;
-                    ballAwayTeam = 0;
-                    outHomeTeam = 0;
-                    outAwayTeam = 0;
-                    home_strike.setText(String.valueOf(strikeHomeTeam));
-                    home_ball.setText(String.valueOf(ballHomeTeam));
-                    away_strike.setText(String.valueOf(strikeAwayTeam));
-                    away_ball.setText(String.valueOf(ballAwayTeam));
-                    home_out.setText(String.valueOf(outHomeTeam));
-                    away_out.setText(String.valueOf(outAwayTeam));
-                    break;
-                case R.id.all_reset:
-                    // Reset the count and outs. //
-                    strikeHomeTeam = 0;
-                    ballHomeTeam = 0;
-                    strikeAwayTeam = 0;
-                    ballAwayTeam = 0;
-                    outHomeTeam = 0;
-                    outAwayTeam = 0;
-                    home_strike.setText(String.valueOf(strikeHomeTeam));
-                    home_ball.setText(String.valueOf(ballHomeTeam));
-                    away_strike.setText(String.valueOf(strikeAwayTeam));
-                    away_ball.setText(String.valueOf(ballAwayTeam));
-                    home_out.setText(String.valueOf(outHomeTeam));
-                    away_out.setText(String.valueOf(outAwayTeam));
-                    break;
-
-                default:
-                    break;
-            }
-        }
-    }
-
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     // Inning Number //
     int inningNumber = 1;
@@ -120,10 +48,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     TextView away_ball;
     TextView away_out;
 
-    // Reset Button //
-    final Context context = this;
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -131,21 +55,38 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         inning_number = (TextView) findViewById(R.id.inning_number);
 
-        home_score = findViewById(R.id.home_score);
-        home_strike = findViewById(R.id.home_strike);
-        home_ball = findViewById(R.id.home_ball);
-        home_out = findViewById(R.id.home_out);
+        home_score = (TextView) findViewById(R.id.home_score);
+        home_strike = (TextView) findViewById(R.id.home_strike);
+        home_ball = (TextView) findViewById(R.id.home_ball);
+        home_out = (TextView) findViewById(R.id.home_out);
 
-        away_score = findViewById(R.id.away_score);
-        away_strike = findViewById(R.id.away_strike);
-        away_ball = findViewById(R.id.away_ball);
-        away_out = findViewById(R.id.away_out);
+        away_score = (TextView) findViewById(R.id.away_score);
+        away_strike = (TextView) findViewById(R.id.away_strike);
+        away_ball = (TextView) findViewById(R.id.away_ball);
+        away_out = (TextView) findViewById(R.id.away_out);
 
         // Create your buttons and set their onClickListener to "this". //
-        Button b4 = (Button) findViewById(R.id.reset);
-        b4.setOnClickListener(this);
-
-        }
+        Button inning = (Button) findViewById(R.id.inning);
+        inning.setOnClickListener(this);
+        Button runHomeTeam = (Button) findViewById(R.id.runHomeTeam);
+        runHomeTeam.setOnClickListener(this);
+        Button strikeHomeTeam = (Button) findViewById(R.id.strikeHomeTeam);
+        strikeHomeTeam.setOnClickListener(this);
+        Button ballHomeTeam = (Button) findViewById(R.id.ballHomeTeam);
+        ballHomeTeam.setOnClickListener(this);
+        Button outHomeTeam = (Button) findViewById(R.id.outHomeTeam);
+        outHomeTeam.setOnClickListener(this);
+        Button runAwayTeam = (Button) findViewById(R.id.runAwayTeam);
+        runAwayTeam.setOnClickListener(this);
+        Button strikeAwayTeam = (Button) findViewById(R.id.strikeAwayTeam);
+        strikeAwayTeam.setOnClickListener(this);
+        Button ballAwayTeam = (Button) findViewById(R.id.ballAwayTeam);
+        ballAwayTeam.setOnClickListener(this);
+        Button outAwayTeam = (Button) findViewById(R.id.outAwayTeam);
+        outAwayTeam.setOnClickListener(this);
+        Button reset = (Button) findViewById(R.id.reset);
+        reset.setOnClickListener(this);
+    }
 
 
     @Override
@@ -198,84 +139,134 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         // Perform action on click //
         switch (v.getId()) {
+            case R.id.inning:
+                // Increase the inning. //
+                inningNumber = inningNumber + 1;
+                inning_number.setText(String.valueOf(inningNumber));
+                break;
+
+            case R.id.runHomeTeam:
+                // Home team run button. //
+                scoreHomeTeam = scoreHomeTeam + 1;
+                home_score.setText(String.valueOf(scoreHomeTeam));
+                break;
+
+            case R.id.strikeHomeTeam:
+                // Home team strike button. //
+                strikeHomeTeam = strikeHomeTeam + 1;
+                home_strike.setText(String.valueOf(strikeHomeTeam));
+                break;
+
+            case R.id.ballHomeTeam:
+                // Home team ball button. //
+                ballHomeTeam = ballHomeTeam + 1;
+                home_ball.setText(String.valueOf(ballHomeTeam));
+                break;
+
+            case R.id.outHomeTeam:
+                // Home team out button. //
+                outHomeTeam = outHomeTeam + 1;
+                home_out.setText(String.valueOf(outHomeTeam));
+                break;
+
+            case R.id.runAwayTeam:
+                // Away team run button. //
+                scoreAwayTeam = scoreAwayTeam + 1;
+                away_score.setText(String.valueOf(scoreAwayTeam));
+                break;
+
+            case R.id.strikeAwayTeam:
+                // Away team strike button. //
+                strikeAwayTeam = strikeAwayTeam + 1;
+                away_strike.setText(String.valueOf(strikeAwayTeam));
+                break;
+
+            case R.id.ballAwayTeam:
+                // Away team ball button. //
+                ballAwayTeam = ballAwayTeam + 1;
+                away_ball.setText(String.valueOf(ballAwayTeam));
+                break;
+
+            case R.id.outAwayTeam:
+                // Away team out button. //
+                outAwayTeam = outAwayTeam + 1;
+                away_out.setText(String.valueOf(outAwayTeam));
+                break;
+
             case R.id.reset:
-                // Reset the count. //
-                final Dialog dialog = new Dialog(context);
+                // Show the reset popup. //
+                final Dialog dialog = new Dialog(this);
                 dialog.setContentView(R.layout.reset_popup);
+
+                Button countReset = (Button) dialog.findViewById(R.id.count_reset);
+                countReset.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        // Reset the count. //
+                        strikeHomeTeam = 0;
+                        ballHomeTeam = 0;
+                        strikeAwayTeam = 0;
+                        ballAwayTeam = 0;
+                        home_strike.setText(String.valueOf(strikeHomeTeam));
+                        home_ball.setText(String.valueOf(ballHomeTeam));
+                        away_strike.setText(String.valueOf(strikeAwayTeam));
+                        away_ball.setText(String.valueOf(ballAwayTeam));
+                        dialog.dismiss();
+                    }
+                });
+
+                Button outsReset = (Button) dialog.findViewById(R.id.outs_reset);
+                outsReset.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        // Reset the count and outs. //
+                        strikeHomeTeam = 0;
+                        ballHomeTeam = 0;
+                        strikeAwayTeam = 0;
+                        ballAwayTeam = 0;
+                        outHomeTeam = 0;
+                        outAwayTeam = 0;
+                        home_strike.setText(String.valueOf(strikeHomeTeam));
+                        home_ball.setText(String.valueOf(ballHomeTeam));
+                        away_strike.setText(String.valueOf(strikeAwayTeam));
+                        away_ball.setText(String.valueOf(ballAwayTeam));
+                        home_out.setText(String.valueOf(outHomeTeam));
+                        away_out.setText(String.valueOf(outAwayTeam));
+                        dialog.dismiss();
+                    }
+                });
+
+                Button allReset = (Button) dialog.findViewById(R.id.all_reset);
+                allReset.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        // Reset everything. //
+                        strikeHomeTeam = 0;
+                        ballHomeTeam = 0;
+                        strikeAwayTeam = 0;
+                        ballAwayTeam = 0;
+                        outHomeTeam = 0;
+                        outAwayTeam = 0;
+                        inningNumber = 1;
+                        scoreHomeTeam = 0;
+                        scoreAwayTeam = 0;
+                        home_strike.setText(String.valueOf(strikeHomeTeam));
+                        home_ball.setText(String.valueOf(ballHomeTeam));
+                        away_strike.setText(String.valueOf(strikeAwayTeam));
+                        away_ball.setText(String.valueOf(ballAwayTeam));
+                        home_out.setText(String.valueOf(outHomeTeam));
+                        away_out.setText(String.valueOf(outAwayTeam));
+                        inning_number.setText(String.valueOf(inningNumber));
+                        home_score.setText(String.valueOf(scoreHomeTeam));
+                        away_score.setText(String.valueOf(scoreAwayTeam));
+                        dialog.dismiss();
+                    }
+                });
+
                 dialog.show();
+
+            default:
                 break;
         }
-    }
-
-    /**
-     * This method is called when the Inning button is clicked.
-     */
-    public void changeInning(View view) {
-        inningNumber = inningNumber + 1;
-        inning_number.setText(String.valueOf(inningNumber));
-    }
-
-    /**
-     * This method is called when the Home Team Run button is clicked.
-     */
-    public void runHomeTeam(View view) {
-        scoreHomeTeam = scoreHomeTeam + 1;
-        home_score.setText(String.valueOf(scoreHomeTeam));
-    }
-
-    /**
-     * This method is called when the Home Team Strike button is clicked.
-     */
-    public void strikeHomeTeam(View view) {
-        strikeHomeTeam = strikeHomeTeam + 1;
-        home_strike.setText(String.valueOf(strikeHomeTeam));
-    }
-
-    /**
-     * This method is called when the Home Team Ball button is clicked.
-     */
-    public void ballHomeTeam(View view) {
-        ballHomeTeam = ballHomeTeam + 1;
-        home_ball.setText(String.valueOf(ballHomeTeam));
-    }
-
-    /**
-     * This method is called when the Home Team Out button is clicked.
-     */
-    public void outHomeTeam(View view) {
-        outHomeTeam = outHomeTeam + 1;
-        home_out.setText(String.valueOf(outHomeTeam));
-    }
-
-    /**
-     * This method is called when the Away Team Run button is clicked.
-     */
-    public void runAwayTeam(View view) {
-        scoreAwayTeam = scoreAwayTeam + 1;
-        away_score.setText(String.valueOf(scoreAwayTeam));
-    }
-
-    /**
-     * This method is called when the Away Team Strike button is clicked.
-     */
-    public void strikeAwayTeam(View view) {
-        strikeAwayTeam = strikeAwayTeam + 1;
-        away_strike.setText(String.valueOf(strikeAwayTeam));
-    }
-
-    /**
-     * This method is called when the Away Team Ball button is clicked.
-     */
-    public void ballAwayTeam(View view) {
-        ballAwayTeam = ballAwayTeam + 1;
-        away_ball.setText(String.valueOf(ballAwayTeam));
-    }
-
-    /**
-     * This method is called when the Away Team Out button is clicked.
-     */
-    public void outAwayTeam(View view) {
-        outAwayTeam = outAwayTeam + 1;
-        away_out.setText(String.valueOf(outAwayTeam));
     }
 }

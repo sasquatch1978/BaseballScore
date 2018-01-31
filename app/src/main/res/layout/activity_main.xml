@@ -88,23 +88,23 @@
                     </LinearLayout>
 
                     <Button
+                        android:id="@+id/runHomeTeam"
                         style="@style/TopButton"
-                        android:onClick="runHomeTeam"
                         android:text="@string/run_button" />
 
                     <Button
+                        android:id="@+id/strikeHomeTeam"
                         style="@style/Button"
-                        android:onClick="strikeHomeTeam"
                         android:text="@string/strike_button" />
 
                     <Button
+                        android:id="@+id/ballHomeTeam"
                         style="@style/Button"
-                        android:onClick="ballHomeTeam"
                         android:text="@string/ball_button" />
 
                     <Button
+                        android:id="@+id/outHomeTeam"
                         style="@style/BottomButton"
-                        android:onClick="outHomeTeam"
                         android:text="@string/out_button" />
                 </LinearLayout>
 
@@ -159,37 +159,36 @@
                     </LinearLayout>
 
                     <Button
+                        android:id="@+id/runAwayTeam"
                         style="@style/TopButton"
-                        android:onClick="runAwayTeam"
                         android:text="@string/run_button" />
 
                     <Button
+                        android:id="@+id/strikeAwayTeam"
                         style="@style/Button"
-                        android:onClick="strikeAwayTeam"
                         android:text="@string/strike_button" />
 
                     <Button
+                        android:id="@+id/ballAwayTeam"
                         style="@style/Button"
-                        android:onClick="ballAwayTeam"
                         android:text="@string/ball_button" />
 
                     <Button
+                        android:id="@+id/outAwayTeam"
                         style="@style/BottomButton"
-                        android:onClick="outAwayTeam"
                         android:text="@string/out_button" />
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>
 
         <Button
-            android:id="@+id/button1"
+            android:id="@+id/inning"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/button_layout"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="@dimen/margin_button"
             android:alpha="@dimen/alpha"
-            android:onClick="changeInning"
             android:paddingLeft="@dimen/button_padding"
             android:paddingRight="@dimen/button_padding"
             android:text="Inning"
@@ -199,7 +198,7 @@
             android:id="@+id/reset"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/button1"
+            android:layout_below="@id/inning"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="@dimen/margin_button"
             android:alpha="@dimen/alpha"
