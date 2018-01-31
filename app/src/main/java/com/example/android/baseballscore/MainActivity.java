@@ -8,7 +8,78 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener{
+
+    public class Reset extends AppCompatActivity implements View.OnClickListener {
+
+        protected void onCreate(Bundle savedBundle) {
+            super.onCreate(savedBundle);
+            setContentView(R.layout.reset_popup);
+
+            // Create your buttons and set their onClickListener to "this". //
+            Button b1 = (Button) findViewById(R.id.count_reset);
+            b1.setOnClickListener(this);
+
+            Button b2 = (Button) findViewById(R.id.outs_reset);
+            b2.setOnClickListener(this);
+
+            Button b3 = (Button) findViewById(R.id.all_reset);
+            b3.setOnClickListener(this);}
+
+
+        // Implement the onClick method here. //
+
+        public void onClick(View v) {
+            // Perform action on click //
+            switch (v.getId()) {
+                case R.id.count_reset:
+                    // Reset the count. //
+                    strikeHomeTeam = 0;
+                    ballHomeTeam = 0;
+                    strikeAwayTeam = 0;
+                    ballAwayTeam = 0;
+                    home_strike.setText(String.valueOf(strikeHomeTeam));
+                    home_ball.setText(String.valueOf(ballHomeTeam));
+                    away_strike.setText(String.valueOf(strikeAwayTeam));
+                    away_ball.setText(String.valueOf(ballAwayTeam));
+                    break;
+                case R.id.outs_reset:
+                    // Reset the count and outs. //
+                    strikeHomeTeam = 0;
+                    ballHomeTeam = 0;
+                    strikeAwayTeam = 0;
+                    ballAwayTeam = 0;
+                    outHomeTeam = 0;
+                    outAwayTeam = 0;
+                    home_strike.setText(String.valueOf(strikeHomeTeam));
+                    home_ball.setText(String.valueOf(ballHomeTeam));
+                    away_strike.setText(String.valueOf(strikeAwayTeam));
+                    away_ball.setText(String.valueOf(ballAwayTeam));
+                    home_out.setText(String.valueOf(outHomeTeam));
+                    away_out.setText(String.valueOf(outAwayTeam));
+                    break;
+                case R.id.all_reset:
+                    // Reset the count and outs. //
+                    strikeHomeTeam = 0;
+                    ballHomeTeam = 0;
+                    strikeAwayTeam = 0;
+                    ballAwayTeam = 0;
+                    outHomeTeam = 0;
+                    outAwayTeam = 0;
+                    home_strike.setText(String.valueOf(strikeHomeTeam));
+                    home_ball.setText(String.valueOf(ballHomeTeam));
+                    away_strike.setText(String.valueOf(strikeAwayTeam));
+                    away_ball.setText(String.valueOf(ballAwayTeam));
+                    home_out.setText(String.valueOf(outHomeTeam));
+                    away_out.setText(String.valueOf(outAwayTeam));
+                    break;
+
+                default:
+                    break;
+            }
+        }
+    }
+
 
     // Inning Number //
     int inningNumber = 1;
@@ -51,7 +122,7 @@ public class MainActivity extends AppCompatActivity {
 
     // Reset Button //
     final Context context = this;
-    private Button reset;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,81 +141,12 @@ public class MainActivity extends AppCompatActivity {
         away_ball = findViewById(R.id.away_ball);
         away_out = findViewById(R.id.away_out);
 
-        reset = (Button) findViewById(R.id.reset);
+        // Create your buttons and set their onClickListener to "this". //
+        Button b4 = (Button) findViewById(R.id.reset);
+        b4.setOnClickListener(this);
 
-        // Add button listener. //
-        reset.setOnClickListener(new View.OnClickListener() {
+        }
 
-            public void onClick(View view) {
-                // Custom dialog. //
-                final Dialog dialog = new Dialog(context);
-                dialog.setContentView(R.layout.reset_popup);
-
-                Button countReset = (Button) dialog.findViewById(R.id.count_reset);
-                // If button is clicked, clear the count. //
-                countReset.setOnClickListener(new View.OnClickListener() {
-                    public void onClick(View view) {
-                        strikeHomeTeam = 0;
-                        ballHomeTeam = 0;
-                        strikeAwayTeam = 0;
-                        ballAwayTeam = 0;
-                        home_strike.setText(String.valueOf(strikeHomeTeam));
-                        home_ball.setText(String.valueOf(ballHomeTeam));
-                        away_strike.setText(String.valueOf(strikeAwayTeam));
-                        away_ball.setText(String.valueOf(ballAwayTeam));
-                        dialog.dismiss();
-                    }
-                });
-
-                Button outsReset = (Button) dialog.findViewById(R.id.outs_reset);
-                // If button is clicked, clear the count and outs. //
-                outsReset.setOnClickListener(new View.OnClickListener() {
-                    public void onClick(View view) {
-                        strikeHomeTeam = 0;
-                        ballHomeTeam = 0;
-                        strikeAwayTeam = 0;
-                        ballAwayTeam = 0;
-                        outHomeTeam = 0;
-                        outAwayTeam = 0;
-                        home_strike.setText(String.valueOf(strikeHomeTeam));
-                        home_ball.setText(String.valueOf(ballHomeTeam));
-                        away_strike.setText(String.valueOf(strikeAwayTeam));
-                        away_ball.setText(String.valueOf(ballAwayTeam));
-                        home_out.setText(String.valueOf(outHomeTeam));
-                        away_out.setText(String.valueOf(outAwayTeam));
-                        dialog.dismiss();
-                    }
-                });
-
-                Button allReset = (Button) dialog.findViewById(R.id.all_reset);
-                // If button is clicked, clear everything. //
-                allReset.setOnClickListener(new View.OnClickListener() {
-                    public void onClick(View view) {
-                        strikeHomeTeam = 0;
-                        ballHomeTeam = 0;
-                        strikeAwayTeam = 0;
-                        ballAwayTeam = 0;
-                        outHomeTeam = 0;
-                        outAwayTeam = 0;
-                        inningNumber = 1;
-                        scoreHomeTeam = 0;
-                        scoreAwayTeam = 0;
-                        home_strike.setText(String.valueOf(strikeHomeTeam));
-                        home_ball.setText(String.valueOf(ballHomeTeam));
-                        away_strike.setText(String.valueOf(strikeAwayTeam));
-                        away_ball.setText(String.valueOf(ballAwayTeam));
-                        home_out.setText(String.valueOf(outHomeTeam));
-                        away_out.setText(String.valueOf(outAwayTeam));
-                        inning_number.setText(String.valueOf(inningNumber));
-                        home_score.setText(String.valueOf(scoreHomeTeam));
-                        away_score.setText(String.valueOf(scoreAwayTeam));
-                        dialog.dismiss();
-                    }
-                });
-                dialog.show();
-            }
-        });
-    }
 
     @Override
     protected void onSaveInstanceState(Bundle savedInstanceState) {
@@ -190,6 +192,19 @@ public class MainActivity extends AppCompatActivity {
         inning_number.setText(String.valueOf(inningNumber));
         home_score.setText(String.valueOf(scoreHomeTeam));
         away_score.setText(String.valueOf(scoreAwayTeam));
+    }
+
+    // Reset Button //
+    public void onClick(View v) {
+        // Perform action on click //
+        switch (v.getId()) {
+            case R.id.reset:
+                // Reset the count. //
+                final Dialog dialog = new Dialog(context);
+                dialog.setContentView(R.layout.reset_popup);
+                dialog.show();
+                break;
+        }
     }
 
     /**
