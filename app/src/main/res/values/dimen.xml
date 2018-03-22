@@ -5,7 +5,7 @@
     <dimen name="margin_top">16dp</dimen>
     <dimen name="margin_header">20dp</dimen>
     <dimen name="margin_button">7dp</dimen>
-    <dimen name="button_padding">60dp</dimen>
+    <dimen name="button_padding">40dp</dimen>
     <dimen name="title_font">20sp</dimen>
     <dimen name="count_font">24sp</dimen>
     <dimen name="score_font">56sp</dimen>

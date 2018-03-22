@@ -8,7 +8,7 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
 
         <ImageView
             android:layout_width="match_parent"
@@ -111,7 +111,6 @@
                 <View
                     android:layout_width="@dimen/line_size"
                     android:layout_height="match_parent"
-                    android:layout_centerHorizontal="true"
                     android:background="@android:color/darker_gray" />
 
                 <LinearLayout style="@style/BodyLayout">
@@ -182,7 +181,7 @@
         </LinearLayout>
 
         <Button
-            android:id="@+id/inning"
+            android:id="@+id/countReset"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/button_layout"
@@ -191,14 +190,14 @@
             android:alpha="@dimen/alpha"
             android:paddingLeft="@dimen/button_padding"
             android:paddingRight="@dimen/button_padding"
-            android:text="Inning"
+            android:text="@string/reset_count"
             android:textColor="@color/button_text_color" />
 
         <Button
             android:id="@+id/reset"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/inning"
+            android:layout_below="@id/countReset"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="@dimen/margin_button"
             android:alpha="@dimen/alpha"
