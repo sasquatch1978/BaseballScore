@@ -45,13 +45,196 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // Identify all views and set their listeners.
+        initializeViews();
+    }
+
+
+    @Override
+    protected void onSaveInstanceState(Bundle savedInstanceState) {
+        // Save custom values into the bundle.
+        savedInstanceState.putInt("inning_number", inningNumber);
+        // Home Team
+        savedInstanceState.putInt("score_home", scoreHomeTeam);
+        savedInstanceState.putInt("strike_home", strikeHomeTeam);
+        savedInstanceState.putInt("ball_home", ballHomeTeam);
+        savedInstanceState.putInt("out_home", outHomeTeam);
+        // Away Team
+        savedInstanceState.putInt("score_away", scoreAwayTeam);
+        savedInstanceState.putInt("strike_away", strikeAwayTeam);
+        savedInstanceState.putInt("ball_away", ballAwayTeam);
+        savedInstanceState.putInt("out_away", outAwayTeam);
+        // Always call the superclass so it can save the view hierarchy state.
+        super.onSaveInstanceState(savedInstanceState);
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        // Always call the superclass so it can restore the view hierarchy.
+        super.onRestoreInstanceState(savedInstanceState);
+        // Restore state members from saved instance.
+        inningNumber = savedInstanceState.getInt("inning_number");
+        // Home Team
+        scoreHomeTeam = savedInstanceState.getInt("score_home");
+        strikeHomeTeam = savedInstanceState.getInt("strike_home");
+        ballHomeTeam = savedInstanceState.getInt("ball_home");
+        outHomeTeam = savedInstanceState.getInt("out_home");
+        // Away Team
+        scoreAwayTeam = savedInstanceState.getInt("score_away");
+        strikeAwayTeam = savedInstanceState.getInt("strike_away");
+        ballAwayTeam = savedInstanceState.getInt("ball_away");
+        outAwayTeam = savedInstanceState.getInt("out_away");
+        // Display the saved values.
+        home_strike.setText(String.valueOf(strikeHomeTeam));
+        home_ball.setText(String.valueOf(ballHomeTeam));
+        away_strike.setText(String.valueOf(strikeAwayTeam));
+        away_ball.setText(String.valueOf(ballAwayTeam));
+        home_out.setText(String.valueOf(outHomeTeam));
+        away_out.setText(String.valueOf(outAwayTeam));
+        inning_number.setText(String.valueOf(inningNumber));
+        home_score.setText(String.valueOf(scoreHomeTeam));
+        away_score.setText(String.valueOf(scoreAwayTeam));
+    }
+
+    // Perform action on click.
+    public void onClick(View v) {
+        switch (v.getId()) {
+            // Home Team run button.
+            case R.id.runHomeTeam:
+                // Add one point to Home Team score.
+                scoreHomeTeam += 1;
+                home_score.setText(String.valueOf(scoreHomeTeam));
+                break;
+
+            // Home Team strike button.
+            case R.id.strikeHomeTeam:
+                // Add one strike to Home Team.
+                strikeHomeTeam += 1;
+                home_strike.setText(String.valueOf(strikeHomeTeam));
+
+                // After three strikes, display toast and reset count.
+                if (strikeHomeTeam == 3)
+                    strikeOut();
+                break;
+
+            // Home Team ball button.
+            case R.id.ballHomeTeam:
+                // Add one ball to the Home Team.
+                ballHomeTeam += 1;
+                home_ball.setText(String.valueOf(ballHomeTeam));
+
+                // After four balls, display toast and reset count.
+                if (ballHomeTeam == 4)
+                    walkPlayer();
+                break;
+
+            // Home Team out button.
+            case R.id.outHomeTeam:
+                // Add one out to the Home Team.
+                outHomeTeam += 1;
+                home_out.setText(String.valueOf(outHomeTeam));
+
+                // After three outs, display toast, reset count and reset outs with a one second delay.
+                if (outHomeTeam == 3) {
+                    Toast toast = Toast.makeText(this, R.string.awayTeamBat, Toast.LENGTH_SHORT);
+                    toast.setGravity(Gravity.CENTER, 0, 420);
+                    toast.show();
+                    handler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            resetCount();
+                            resetOuts();
+                        }
+                    }, 1000);
+                }
+                break;
+
+            // Away Team run button.
+            case R.id.runAwayTeam:
+                // Add one point to Away Team score.
+                scoreAwayTeam += 1;
+                away_score.setText(String.valueOf(scoreAwayTeam));
+                break;
+
+            // Away Team strike button.
+            case R.id.strikeAwayTeam:
+                // Add one strike to Away Team.
+                strikeAwayTeam += 1;
+                away_strike.setText(String.valueOf(strikeAwayTeam));
+
+                // After three strikes, display toast and reset count.
+                if (strikeAwayTeam == 3)
+                    strikeOut();
+                break;
+
+            // Away Team ball button.
+            case R.id.ballAwayTeam:
+                // Add one ball to the Away Team.
+                ballAwayTeam += 1;
+                away_ball.setText(String.valueOf(ballAwayTeam));
+
+                // After four balls, display toast and reset count.
+                if (ballAwayTeam == 4)
+                    walkPlayer();
+                break;
+
+            // Away Team out button.
+            case R.id.outAwayTeam:
+                // Add one out to the Away Team.
+                outAwayTeam += 1;
+                away_out.setText(String.valueOf(outAwayTeam));
+
+                // After three outs, display toast, reset count, reset outs, and increase inning by one with a one second delay.
+                if (outAwayTeam == 3) {
+                    Toast toast = Toast.makeText(this, R.string.homeTeamBat, Toast.LENGTH_SHORT);
+                    toast.setGravity(Gravity.CENTER, 0, 420);
+                    toast.show();
+                    handler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            resetCount();
+                            resetOuts();
+                            inningNumber += 1;
+                            inning_number.setText(String.valueOf(inningNumber));
+                        }
+                    }, 1000);
+                }
+                break;
+
+            // Reset Count button (needed so that if player gets on base without being walked, count can be reset).
+            case R.id.countReset:
+                // Reset the count.
+                resetCount();
+                break;
+
+            // Game Over button.
+            case R.id.reset:
+                // Reset everything.
+                resetCount();
+                resetOuts();
+                inningNumber = 1;
+                scoreHomeTeam = 0;
+                scoreAwayTeam = 0;
+                inning_number.setText(String.valueOf(inningNumber));
+                home_score.setText(String.valueOf(scoreHomeTeam));
+                away_score.setText(String.valueOf(scoreAwayTeam));
+
+            default:
+                break;
+        }
+    }
+
+    // Identify all views and set their listeners.
+    public void initializeViews() {
         inning_number = findViewById(R.id.inning_number);
 
+        // Home team TextViews.
         home_score = findViewById(R.id.home_score);
         home_strike = findViewById(R.id.home_strike);
         home_ball = findViewById(R.id.home_ball);
         home_out = findViewById(R.id.home_out);
 
+        // Away team TextViews.
         away_score = findViewById(R.id.away_score);
         away_strike = findViewById(R.id.away_strike);
         away_ball = findViewById(R.id.away_ball);
@@ -80,53 +263,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         reset.setOnClickListener(this);
     }
 
-
-    @Override
-    protected void onSaveInstanceState(Bundle savedInstanceState) {
-        // Save custom values into the bundle. //
-        savedInstanceState.putInt("inning_number", inningNumber);
-        // Home Team. //
-        savedInstanceState.putInt("score_home", scoreHomeTeam);
-        savedInstanceState.putInt("strike_home", strikeHomeTeam);
-        savedInstanceState.putInt("ball_home", ballHomeTeam);
-        savedInstanceState.putInt("out_home", outHomeTeam);
-        // Away Team. //
-        savedInstanceState.putInt("score_away", scoreAwayTeam);
-        savedInstanceState.putInt("strike_away", strikeAwayTeam);
-        savedInstanceState.putInt("ball_away", ballAwayTeam);
-        savedInstanceState.putInt("out_away", outAwayTeam);
-        // Always call the superclass so it can save the view hierarchy state.
-        super.onSaveInstanceState(savedInstanceState);
-    }
-
-    @Override
-    protected void onRestoreInstanceState(Bundle savedInstanceState) {
-        // Always call the superclass so it can restore the view hierarchy.
-        super.onRestoreInstanceState(savedInstanceState);
-        // Restore state members from saved instance. //
-        inningNumber = savedInstanceState.getInt("inning_number");
-        // Home Team //
-        scoreHomeTeam = savedInstanceState.getInt("score_home");
-        strikeHomeTeam = savedInstanceState.getInt("strike_home");
-        ballHomeTeam = savedInstanceState.getInt("ball_home");
-        outHomeTeam = savedInstanceState.getInt("out_home");
-        // Away Team //
-        scoreAwayTeam = savedInstanceState.getInt("score_away");
-        strikeAwayTeam = savedInstanceState.getInt("strike_away");
-        ballAwayTeam = savedInstanceState.getInt("ball_away");
-        outAwayTeam = savedInstanceState.getInt("out_away");
-        // Display the saved values. //
-        home_strike.setText(String.valueOf(strikeHomeTeam));
-        home_ball.setText(String.valueOf(ballHomeTeam));
-        away_strike.setText(String.valueOf(strikeAwayTeam));
-        away_ball.setText(String.valueOf(ballAwayTeam));
-        home_out.setText(String.valueOf(outHomeTeam));
-        away_out.setText(String.valueOf(outAwayTeam));
-        inning_number.setText(String.valueOf(inningNumber));
-        home_score.setText(String.valueOf(scoreHomeTeam));
-        away_score.setText(String.valueOf(scoreAwayTeam));
-    }
-
+    // Resets strikes and balls to zero.
     public void resetCount() {
         strikeHomeTeam = 0;
         ballHomeTeam = 0;
@@ -138,6 +275,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         away_ball.setText(String.valueOf(ballAwayTeam));
     }
 
+    // Resets outs to zero.
     public void resetOuts() {
         outHomeTeam = 0;
         outAwayTeam = 0;
@@ -145,8 +283,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         away_out.setText(String.valueOf(outAwayTeam));
     }
 
+    // Display toast, and reset strikes and balls to zero with one second delay.
     public void strikeOut() {
-        Toast toast = Toast.makeText(this, "Out", Toast.LENGTH_SHORT);
+        Toast toast = Toast.makeText(this, R.string.playerOut, Toast.LENGTH_SHORT);
         toast.setGravity(Gravity.CENTER, 0, 420);
         toast.show();
         handler.postDelayed(new Runnable() {
@@ -157,8 +296,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }, 1000);
     }
 
+    // Display toast, and reset strikes and balls to zero with one second delay.
     public void walkPlayer() {
-        Toast toast = Toast.makeText(this, "Walk", Toast.LENGTH_SHORT);
+        Toast toast = Toast.makeText(this, R.string.playerWalk, Toast.LENGTH_SHORT);
         toast.setGravity(Gravity.CENTER, 0, 420);
         toast.show();
         handler.postDelayed(new Runnable() {
@@ -167,117 +307,5 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 resetCount();
             }
         }, 1000);
-    }
-
-    public void onClick(View v) {
-        // Perform action on click.
-        switch (v.getId()) {
-            case R.id.runHomeTeam:
-                // Home team run button.
-                scoreHomeTeam += 1;
-                home_score.setText(String.valueOf(scoreHomeTeam));
-                break;
-
-            case R.id.strikeHomeTeam:
-                // Home team strike button.
-                strikeHomeTeam += 1;
-                home_strike.setText(String.valueOf(strikeHomeTeam));
-
-                if (strikeHomeTeam == 3)
-                    strikeOut();
-                break;
-
-            case R.id.ballHomeTeam:
-                // Home team ball button.
-                ballHomeTeam += 1;
-                home_ball.setText(String.valueOf(ballHomeTeam));
-
-                if (ballHomeTeam == 4)
-                    walkPlayer();
-                break;
-
-            case R.id.outHomeTeam:
-                // Home team out button.
-                outHomeTeam += 1;
-                home_out.setText(String.valueOf(outHomeTeam));
-
-                if (outHomeTeam == 3) {
-                    Toast toast = Toast.makeText(this, "Away Team at bat.", Toast.LENGTH_SHORT);
-                    toast.setGravity(Gravity.CENTER, 0, 420);
-                    toast.show();
-                    handler.postDelayed(new Runnable() {
-                        @Override
-                        public void run() {
-                            resetCount();
-                            resetOuts();
-                        }
-                    }, 1000);
-                }
-                break;
-
-            case R.id.runAwayTeam:
-                // Away team run button.
-                scoreAwayTeam += 1;
-                away_score.setText(String.valueOf(scoreAwayTeam));
-                break;
-
-            case R.id.strikeAwayTeam:
-                // Away team strike button.
-                strikeAwayTeam += 1;
-                away_strike.setText(String.valueOf(strikeAwayTeam));
-
-                if (strikeAwayTeam == 3)
-                    strikeOut();
-                break;
-
-            case R.id.ballAwayTeam:
-                // Away team ball button.
-                ballAwayTeam += 1;
-                away_ball.setText(String.valueOf(ballAwayTeam));
-
-                if (ballAwayTeam == 4)
-                    walkPlayer();
-                break;
-
-            case R.id.outAwayTeam:
-                // Away team out button.
-                outAwayTeam += 1;
-                away_out.setText(String.valueOf(outAwayTeam));
-
-                if (outAwayTeam == 3) {
-                    Toast toast = Toast.makeText(this, R.string.homeTeamBat, Toast.LENGTH_SHORT);
-                    toast.setGravity(Gravity.CENTER, 0, 420);
-                    toast.show();
-                    handler.postDelayed(new Runnable() {
-                        @Override
-                        public void run() {
-                            resetCount();
-                            resetOuts();
-                            inningNumber += 1;
-                            inning_number.setText(String.valueOf(inningNumber));
-                        }
-                    }, 1000);
-                }
-                break;
-
-            case R.id.countReset:
-                // Reset the count.
-                resetCount();
-                break;
-
-            case R.id.reset:
-                // Reset everything.
-                resetCount();
-                resetOuts();
-                inningNumber = 1;
-                scoreHomeTeam = 0;
-                scoreAwayTeam = 0;
-                inning_number.setText(String.valueOf(inningNumber));
-                home_score.setText(String.valueOf(scoreHomeTeam));
-                away_score.setText(String.valueOf(scoreAwayTeam));
-
-            default:
-                break;
-        }
     }
 }

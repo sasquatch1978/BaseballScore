@@ -1,5 +1,8 @@
 <resources>
+    <!-- Title for the application. -->
     <string name="app_name">Baseball Score</string>
+
+    <!-- Xml Strings -->
     <string name="inning">Inning</string>
     <string name="home_team">Home</string>
     <string name="away_team">Away</string>
@@ -14,5 +17,10 @@
     <string name="ball_count">B</string>
     <string name="out_count">O</string>
     <string name="reset_count">Reset Count</string>
+
+    <!-- Java Strings -->
     <string name="homeTeamBat">Home Team at bat.</string>
+    <string name="awayTeamBat">Away Team at bat.</string>
+    <string name="playerOut">Out</string>
+    <string name="playerWalk">Walk</string>
 </resources>
