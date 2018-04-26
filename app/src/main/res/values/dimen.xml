@@ -1,13 +1,20 @@
 <resources>
-    <dimen name="layout_size">0dp</dimen>
-    <dimen name="line_size">1dp</dimen>
-    <dimen name="margin_side">24dp</dimen>
-    <dimen name="margin_top">16dp</dimen>
-    <dimen name="margin_header">20dp</dimen>
-    <dimen name="margin_button">7dp</dimen>
-    <dimen name="button_padding">40dp</dimen>
-    <dimen name="title_font">20sp</dimen>
-    <dimen name="count_font">24sp</dimen>
-    <dimen name="score_font">56sp</dimen>
+    <!-- Body Layout Size and divider line -->
+    <dimen name="layoutSize">0dp</dimen>
+    <dimen name="lineSize">1dp</dimen>
+
+    <!-- Margins/Padding -->
+    <dimen name="sideMargin">24dp</dimen>
+    <dimen name="topMargin">16dp</dimen>
+    <dimen name="headerMargin">20dp</dimen>
+    <dimen name="buttonMargin">7dp</dimen>
+    <dimen name="buttonPadding">40dp</dimen>
+
+    <!-- Text size -->
+    <dimen name="titleFont">20sp</dimen>
+    <dimen name="countFont">24sp</dimen>
+    <dimen name="scoreFont">56sp</dimen>
+
+    <!-- Button transparency -->
     <dimen name="alpha">0.94</dimen>
 </resources>

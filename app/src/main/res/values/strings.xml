@@ -4,19 +4,19 @@
 
     <!-- Xml Strings -->
     <string name="inning">Inning</string>
-    <string name="home_team">Home</string>
-    <string name="away_team">Away</string>
-    <string name="inning_number">1</string>
+    <string name="homeTeam">Home</string>
+    <string name="awayTeam">Away</string>
+    <string name="inningNumber">1</string>
+    <string name="strikeCount">S</string>
+    <string name="ballCount">B</string>
+    <string name="outCount">O</string>
     <string name="zero">0</string>
-    <string name="run_button">Run</string>
-    <string name="strike_button">Strike</string>
-    <string name="ball_button">Ball</string>
-    <string name="out_button">Out</string>
-    <string name="reset_button">Game Over</string>
-    <string name="strike_count">S</string>
-    <string name="ball_count">B</string>
-    <string name="out_count">O</string>
-    <string name="reset_count">Reset Count</string>
+    <string name="runButton">Run</string>
+    <string name="strikeButton">Strike</string>
+    <string name="ballButton">Ball</string>
+    <string name="outButton">Out</string>
+    <string name="resetCount">Reset Count</string>
+    <string name="resetButton">Game Over</string>
 
     <!-- Java Strings -->
     <string name="homeTeamBat">Home Team at bat.</string>

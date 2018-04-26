@@ -14,18 +14,18 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:gravity">center_horizontal</item>
         <item name="android:textAllCaps">true</item>
-        <item name="android:textColor">@color/title_color</item>
-        <item name="android:textSize">@dimen/title_font</item>
+        <item name="android:textColor">@color/titleColor</item>
+        <item name="android:textSize">@dimen/titleFont</item>
     </style>
 
     <style name="ScoreText">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_marginBottom">@dimen/margin_top</item>
-        <item name="android:layout_marginTop">@dimen/margin_top</item>
+        <item name="android:layout_marginBottom">@dimen/topMargin</item>
+        <item name="android:layout_marginTop">@dimen/topMargin</item>
         <item name="android:gravity">center_horizontal</item>
-        <item name="android:textColor">@color/score_color</item>
-        <item name="android:textSize">@dimen/score_font</item>
+        <item name="android:textColor">@color/scoreColor</item>
+        <item name="android:textSize">@dimen/scoreFont</item>
     </style>
 
     <style name="CountTitleText">
@@ -33,8 +33,8 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_weight">1</item>
         <item name="android:gravity">center_horizontal</item>
-        <item name="android:textColor">@color/title_color</item>
-        <item name="android:textSize">@dimen/title_font</item>
+        <item name="android:textColor">@color/titleColor</item>
+        <item name="android:textSize">@dimen/titleFont</item>
     </style>
 
     <style name="CountText">
@@ -42,39 +42,39 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_weight">1</item>
         <item name="android:gravity">center_horizontal</item>
-        <item name="android:textColor">@color/score_color</item>
-        <item name="android:textSize">@dimen/count_font</item>
+        <item name="android:textColor">@color/scoreColor</item>
+        <item name="android:textSize">@dimen/countFont</item>
     </style>
 
     <style name="TopButton">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_marginBottom">@dimen/margin_button</item>
-        <item name="android:layout_marginTop">@dimen/margin_header</item>
+        <item name="android:layout_marginBottom">@dimen/buttonMargin</item>
+        <item name="android:layout_marginTop">@dimen/headerMargin</item>
         <item name="android:alpha">@dimen/alpha</item>
-        <item name="android:textColor">@color/button_text_color</item>
+        <item name="android:textColor">@color/buttonTextColor</item>
     </style>
 
     <style name="Button">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_marginBottom">@dimen/margin_button</item>
+        <item name="android:layout_marginBottom">@dimen/buttonMargin</item>
         <item name="android:alpha">@dimen/alpha</item>
-        <item name="android:textColor">@color/button_text_color</item>
+        <item name="android:textColor">@color/buttonTextColor</item>
     </style>
 
     <style name="BottomButton">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:alpha">@dimen/alpha</item>
-        <item name="android:textColor">@color/button_text_color</item>
+        <item name="android:textColor">@color/buttonTextColor</item>
     </style>
 
     <style name="BodyLayout">
-        <item name="android:layout_width">@dimen/layout_size</item>
+        <item name="android:layout_width">@dimen/layoutSize</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_marginLeft">@dimen/margin_side</item>
-        <item name="android:layout_marginRight">@dimen/margin_side</item>
+        <item name="android:layout_marginLeft">@dimen/sideMargin</item>
+        <item name="android:layout_marginRight">@dimen/sideMargin</item>
         <item name="android:layout_weight">1</item>
         <item name="android:orientation">vertical</item>
     </style>

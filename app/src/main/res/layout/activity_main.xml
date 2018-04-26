@@ -20,7 +20,7 @@
             android:id="@+id/button_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin_top"
+            android:layout_marginTop="@dimen/topMargin"
             android:orientation="vertical">
 
             <TextView
@@ -28,28 +28,27 @@
                 android:text="@string/inning" />
 
             <TextView
-                android:id="@+id/inning_number"
+                android:id="@+id/inningNumber"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center_horizontal"
-                android:text="@string/inning_number"
-                android:textColor="@color/score_color"
-                android:textSize="@dimen/count_font" />
+                android:text="@string/inningNumber"
+                android:textColor="@color/scoreColor"
+                android:textSize="@dimen/countFont" />
 
             <LinearLayout
-                android:id="@+id/score_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/margin_top">
+                android:layout_marginTop="@dimen/topMargin">
 
                 <LinearLayout style="@style/BodyLayout">
 
                     <TextView
                         style="@style/TitleText"
-                        android:text="@string/home_team" />
+                        android:text="@string/homeTeam" />
 
                     <TextView
-                        android:id="@+id/home_score"
+                        android:id="@+id/homeScore"
                         style="@style/ScoreText"
                         android:text="@string/zero" />
 
@@ -57,59 +56,61 @@
 
                         <TextView
                             style="@style/CountTitleText"
-                            android:text="@string/strike_count" />
-
-                        <TextView
-
-                            style="@style/CountTitleText"
-                            android:text="@string/ball_count" />
+                            android:text="@string/strikeCount" />
 
                         <TextView
                             style="@style/CountTitleText"
-                            android:text="@string/out_count" />
+                            android:text="@string/ballCount" />
+
+                        <TextView
+                            style="@style/CountTitleText"
+                            android:text="@string/outCount" />
+
                     </LinearLayout>
 
                     <LinearLayout style="@style/CountLayout">
 
                         <TextView
-                            android:id="@+id/home_strike"
+                            android:id="@+id/homeStrike"
                             style="@style/CountText"
                             android:text="@string/zero" />
 
                         <TextView
-                            android:id="@+id/home_ball"
+                            android:id="@+id/homeBall"
                             style="@style/CountText"
                             android:text="@string/zero" />
 
                         <TextView
-                            android:id="@+id/home_out"
+                            android:id="@+id/homeOut"
                             style="@style/CountText"
                             android:text="@string/zero" />
+
                     </LinearLayout>
 
                     <Button
                         android:id="@+id/runHomeTeam"
                         style="@style/TopButton"
-                        android:text="@string/run_button" />
+                        android:text="@string/runButton" />
 
                     <Button
                         android:id="@+id/strikeHomeTeam"
                         style="@style/Button"
-                        android:text="@string/strike_button" />
+                        android:text="@string/strikeButton" />
 
                     <Button
                         android:id="@+id/ballHomeTeam"
                         style="@style/Button"
-                        android:text="@string/ball_button" />
+                        android:text="@string/ballButton" />
 
                     <Button
                         android:id="@+id/outHomeTeam"
                         style="@style/BottomButton"
-                        android:text="@string/out_button" />
+                        android:text="@string/outButton" />
+
                 </LinearLayout>
 
                 <View
-                    android:layout_width="@dimen/line_size"
+                    android:layout_width="@dimen/lineSize"
                     android:layout_height="match_parent"
                     android:background="@android:color/darker_gray" />
 
@@ -117,10 +118,10 @@
 
                     <TextView
                         style="@style/TitleText"
-                        android:text="@string/away_team" />
+                        android:text="@string/awayTeam" />
 
                     <TextView
-                        android:id="@+id/away_score"
+                        android:id="@+id/awayScore"
                         style="@style/ScoreText"
                         android:text="@string/zero" />
 
@@ -128,54 +129,57 @@
 
                         <TextView
                             style="@style/CountTitleText"
-                            android:text="@string/strike_count" />
+                            android:text="@string/strikeCount" />
 
                         <TextView
                             style="@style/CountTitleText"
-                            android:text="@string/ball_count" />
+                            android:text="@string/ballCount" />
 
                         <TextView
                             style="@style/CountTitleText"
-                            android:text="@string/out_count" />
+                            android:text="@string/outCount" />
+
                     </LinearLayout>
 
                     <LinearLayout style="@style/CountLayout">
 
                         <TextView
-                            android:id="@+id/away_strike"
+                            android:id="@+id/awayStrike"
                             style="@style/CountText"
                             android:text="@string/zero" />
 
                         <TextView
-                            android:id="@+id/away_ball"
+                            android:id="@+id/awayBall"
                             style="@style/CountText"
                             android:text="@string/zero" />
 
                         <TextView
-                            android:id="@+id/away_out"
+                            android:id="@+id/awayOut"
                             style="@style/CountText"
                             android:text="@string/zero" />
+
                     </LinearLayout>
 
                     <Button
                         android:id="@+id/runAwayTeam"
                         style="@style/TopButton"
-                        android:text="@string/run_button" />
+                        android:text="@string/runButton" />
 
                     <Button
                         android:id="@+id/strikeAwayTeam"
                         style="@style/Button"
-                        android:text="@string/strike_button" />
+                        android:text="@string/strikeButton" />
 
                     <Button
                         android:id="@+id/ballAwayTeam"
                         style="@style/Button"
-                        android:text="@string/ball_button" />
+                        android:text="@string/ballButton" />
 
                     <Button
                         android:id="@+id/outAwayTeam"
                         style="@style/BottomButton"
-                        android:text="@string/out_button" />
+                        android:text="@string/outButton" />
+
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>
@@ -186,12 +190,12 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/button_layout"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="@dimen/margin_button"
+            android:layout_marginTop="@dimen/buttonMargin"
             android:alpha="@dimen/alpha"
-            android:paddingLeft="@dimen/button_padding"
-            android:paddingRight="@dimen/button_padding"
-            android:text="@string/reset_count"
-            android:textColor="@color/button_text_color" />
+            android:paddingLeft="@dimen/buttonPadding"
+            android:paddingRight="@dimen/buttonPadding"
+            android:text="@string/resetCount"
+            android:textColor="@color/buttonTextColor" />
 
         <Button
             android:id="@+id/reset"
@@ -199,10 +203,10 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/countReset"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="@dimen/margin_button"
+            android:layout_marginTop="@dimen/buttonMargin"
             android:alpha="@dimen/alpha"
-            android:text="@string/reset_button"
-            android:textColor="@color/button_text_color" />
+            android:text="@string/resetButton"
+            android:textColor="@color/buttonTextColor" />
 
     </RelativeLayout>
 </ScrollView>
