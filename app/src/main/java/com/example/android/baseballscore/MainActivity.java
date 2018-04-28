@@ -19,10 +19,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     static String myInningNumber = "myInningNumber";
 
     // Home Team
-    int scoreHomeTeam = 0;
-    int strikeHomeTeam = 0;
-    int ballHomeTeam = 0;
-    int outHomeTeam = 0;
+    int scoreHomeTeam;
+    int strikeHomeTeam;
+    int ballHomeTeam;
+    int outHomeTeam;
 
     TextView homeScore;
     TextView homeStrike;
@@ -35,10 +35,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     static String outHome = "outHome";
 
     // Away Team
-    int scoreAwayTeam = 0;
-    int strikeAwayTeam = 0;
-    int ballAwayTeam = 0;
-    int outAwayTeam = 0;
+    int scoreAwayTeam;
+    int strikeAwayTeam;
+    int ballAwayTeam;
+    int outAwayTeam;
 
     TextView awayScore;
     TextView awayStrike;
@@ -231,7 +231,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 gameInningNumber = 1;
                 scoreHomeTeam = 0;
                 scoreAwayTeam = 0;
-                inningNumber.setText(String.valueOf(inningNumber));
+                inningNumber.setText(String.valueOf(gameInningNumber));
                 homeScore.setText(String.valueOf(scoreHomeTeam));
                 awayScore.setText(String.valueOf(scoreAwayTeam));
 
